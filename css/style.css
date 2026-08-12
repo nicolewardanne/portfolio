@@ -478,6 +478,7 @@ em { font-style: italic; }
   color: var(--cream);
   padding: 18px 24px;
 }
+.dossier-cta { grid-column: 1 / -1; }
 .cta-text { font-size: 11px; letter-spacing: 2.2px; font-weight: 700; }
 .cta-link { color: var(--cream); font-size: 11px; letter-spacing: 2.2px; font-weight: 700; }
 
