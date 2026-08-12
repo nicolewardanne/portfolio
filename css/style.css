@@ -335,7 +335,7 @@ em { font-style: italic; }
   flex: 1;
   display: grid;
   grid-template-columns: 340px 1fr;
-  gap: 72px;
+  column-gap: 72px;
   padding: 64px 64px 80px;
   align-content: start;
 }
@@ -413,8 +413,12 @@ em { font-style: italic; }
   gap: 32px;
   margin-top: 56px;
 }
+.competency-grid--two { grid-template-columns: 1fr 1fr; }
 
 .competency-card { border-top: 1px solid var(--hr); padding-top: 16px; }
+
+.resume-line { margin: 10px 0 0; font-size: 14px; line-height: 1.7; }
+.resume-line + .resume-line { margin-top: 4px; }
 .competency-title { font-family: "Playfair Display", serif; font-weight: 700; font-size: 19px; }
 .competency-org { font-size: 12.5px; font-style: italic; margin-top: 4px; opacity: 0.75; }
 .competency-desc { margin: 10px 0 0; font-size: 13.5px; line-height: 1.65; }
@@ -512,7 +516,8 @@ em { font-style: italic; }
 
   .problems-grid { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
 
-  .dossier-grid { grid-template-columns: 1fr; gap: 48px; padding: 40px 24px 64px; }
+  .dossier-grid { grid-template-columns: 1fr; padding: 40px 24px 64px; }
+  .resume-body { margin-top: 48px; }
 
   .competency-grid { grid-template-columns: 1fr; gap: 28px; margin-top: 48px; }
 
