@@ -423,7 +423,7 @@ em { font-style: italic; }
 .competency-org { font-size: 12.5px; font-style: italic; margin-top: 4px; opacity: 0.75; }
 .competency-desc { margin: 10px 0 0; font-size: 13.5px; line-height: 1.65; }
 
-.skills-card { border-top: 2px solid var(--ink); padding-top: 16px; }
+.skills-card { padding-top: 0; }
 .skills-title { font-size: 10.5px; letter-spacing: 2px; font-weight: 700; margin-bottom: 12px; }
 
 .cases-btn.nav-btn {
