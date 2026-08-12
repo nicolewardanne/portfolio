@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rethinking Medication Timing in the EHR — Nicole Ward</title>
+<meta name="description" content="A clinician-centered workflow case study on medication-timing risk in the Epic MAR, from problem observation to proposed product direction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/case-study.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="site-header">
+    <div class="clock-text">OPERATIONAL RECORD // <span id="clock">00:00:00</span></div>
+    <div class="brand">The Clinical Record</div>
+    <nav class="site-nav">
+      <a class="nav-btn" href="index.html">INDEX</a>
+      <a class="nav-btn" href="index.html#resume">RESUME</a>
+      <a class="nav-btn active" href="index.html#cases">CASE STUDIES</a>
+    </nav>
+  </header>
+
+  <div class="cs-back">
+    <a class="cs-back-link" href="index.html#cases">← BACK TO CASE STUDIES</a>
+  </div>
+
+  <div class="cs-header">
+    <div class="cs-eyebrow">CASE STUDY / FILE 05</div>
+    <h1 class="cs-title">Rethinking Medication Timing in the EHR</h1>
+    <p class="cs-subtitle">Reducing cognitive burden and opportunities for medication-timing errors through clinician-centered workflow design.</p>
+    <dl class="cs-meta-grid">
+      <div class="cs-meta-item">
+        <dt>ROLE</dt>
+        <dd>Clinical workflow analysis &amp; product concept</dd>
+      </div>
+      <div class="cs-meta-item">
+        <dt>PERSPECTIVE</dt>
+        <dd>Labor &amp; Delivery / Postpartum RN</dd>
+      </div>
+      <div class="cs-meta-item">
+        <dt>ENVIRONMENT</dt>
+        <dd>Observations across 5 Epic-based hospitals</dd>
+      </div>
+      <div class="cs-meta-item">
+        <dt>FOCUS</dt>
+        <dd>Workflow discovery · Clinical operations · Product strategy · Patient safety</dd>
+      </div>
+    </dl>
+  </div>
+
+  <main class="cs-body">
+
+    <!-- 01 — THE PROBLEM -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">01</span>
+        <h2 class="cs-section-title">The Problem</h2>
+      </div>
+
+      <p class="cs-text">Across five Epic-based hospitals where I practiced as an RN, I repeatedly encountered a medication-administration workflow that required nurses to manually reconcile prior administrations, overlapping orders, and dosing intervals to determine when a medication was actually due.</p>
+      <p class="cs-text">The MAR displays medications at the order level, but bedside decisions often require understanding medication history across multiple orders, formulations, and phases of care.</p>
+      <p class="cs-text">As a result, nurses may need to search multiple locations, calculate next-dose eligibility manually, modify scheduled administration times, or rely on memory and handoff communication.</p>
+
+      <div class="fcr-grid">
+        <div class="fcr-card">
+          <div class="fcr-label">FIND</div>
+          <p class="fcr-desc">Search active, previous, and discontinued orders for prior administrations.</p>
+        </div>
+        <div class="fcr-card">
+          <div class="fcr-label">CALCULATE</div>
+          <p class="fcr-desc">Manually determine the next eligible administration time.</p>
+        </div>
+        <div class="fcr-card">
+          <div class="fcr-label">REMEMBER</div>
+          <p class="fcr-desc">Track future doses when the system does not create an actionable reminder.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — WHAT THIS LOOKS LIKE AT THE BEDSIDE -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">02</span>
+        <h2 class="cs-section-title">What This Looks Like at the Bedside</h2>
+      </div>
+      <p class="cs-text">Three scenarios, three medications, one underlying pattern.</p>
+
+      <div class="scenario">
+        <div class="scenario-label">SCENARIO A — POSTPARTUM ACETAMINOPHEN</div>
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="timeline-time">08:30</div>
+            <div class="timeline-content">Acetaminophen administered under vaginal-recovery orders</div>
+          </div>
+          <div class="timeline-arrow">↓</div>
+          <div class="timeline-step">
+            <div class="timeline-time"></div>
+            <div class="timeline-content">Postpartum orders released</div>
+          </div>
+          <div class="timeline-arrow">↓</div>
+          <div class="timeline-step">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-content">New acetaminophen order appears due</div>
+          </div>
+          <div class="timeline-arrow">↓</div>
+          <div class="timeline-step timeline-step--warning">
+            <div class="timeline-time">⚠</div>
+            <div class="timeline-content">Patient received acetaminophen 30 minutes ago</div>
+          </div>
+        </div>
+        <p class="scenario-workflow">Current RN workflow: Locate prior administration → recognize duplicate medication across order sets → calculate appropriate interval → manually adjust next due time.</p>
+        <div class="insight-box">The clinical decision is medication-centric, while the displayed workflow is order-centric.</div>
+      </div>
+
+      <div class="scenario">
+        <div class="scenario-label">SCENARIO B — GBS PROPHYLAXIS</div>
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="timeline-time">10:00</div>
+            <div class="timeline-content">2 g ampicillin loading dose administered</div>
+          </div>
+          <div class="timeline-arrow">↓</div>
+          <div class="timeline-step">
+            <div class="timeline-time">14:00</div>
+            <div class="timeline-content">1 g maintenance dose should be administered</div>
+          </div>
+        </div>
+        <div class="reminder-box">
+          <div class="reminder-box-title">RN MUST CREATE THE REMINDER</div>
+          <p class="reminder-box-detail">Current workarounds: Memory · handwritten notes · manually scheduling the MAR</p>
+        </div>
+        <p class="scenario-quote">I personally enter the next administration time into the maintenance order. Other nurses may rely on memory or written reminders, and I have observed delayed/missed doses.</p>
+        <p class="scenario-quote">Timely intrapartum antibiotic prophylaxis is clinically important. Requiring nurses to independently track subsequent doses introduces an avoidable opportunity for delayed or missed administration.</p>
+      </div>
+
+      <div class="scenario">
+        <div class="scenario-label">SCENARIO C — MINIMUM DOSING INTERVALS · FENTANYL, Q1H PRN</div>
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="timeline-time">10:00</div>
+            <div class="timeline-content">Last dose administered</div>
+          </div>
+          <div class="timeline-arrow">↓</div>
+          <div class="timeline-step timeline-step--warning">
+            <div class="timeline-time">10:30</div>
+            <div class="timeline-content">RN can initiate another administration without a meaningful timing warning</div>
+          </div>
+        </div>
+        <p class="scenario-workflow">The nurse must recognize the previous administration and calculate elapsed time independently. I've observed the same pattern with other medications, such as q4h PRN misoprostol.</p>
+      </div>
+    </section>
+
+    <!-- 03 — WHY THIS MATTERS -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">03</span>
+        <h2 class="cs-section-title">Why This Matters</h2>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-label">CLINICAL</div>
+          <p class="info-desc">Potential opportunities for early, duplicate, delayed, or missed medication administration.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">OPERATIONAL</div>
+          <p class="info-desc">Repeated investigation of medication history consumes nursing time across every patient and every shift.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">COGNITIVE</div>
+          <p class="info-desc">The workflow requires nurses to maintain medication timing in working memory while managing competing clinical priorities.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">PRODUCT</div>
+          <p class="info-desc">Stale or non-actionable overdue indicators can contribute to alert fatigue and reduce confidence in system-generated cues.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 — CURRENT-STATE WORKFLOW -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">04</span>
+        <h2 class="cs-section-title">Current-State Workflow</h2>
+      </div>
+      <div class="flow-diagram">
+        <div class="flow-step">Medication appears due</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">Check last administration</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">Was it given under this order?</div>
+        <div class="flow-arrow">↓ NO</div>
+        <div class="flow-step flow-step--branch">Search other active orders</div>
+        <div class="flow-step flow-step--branch">Search previous orders</div>
+        <div class="flow-step flow-step--branch">Search discontinued orders</div>
+        <div class="flow-step flow-step--branch">Check MAR report</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">Identify last administration</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">Calculate interval</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">Determine actual eligibility</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">Optionally update due time</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">Administer</div>
+      </div>
+      <p class="cs-caption">Every additional reconciliation step represents clinician time, cognitive load, and an opportunity for information to be missed.</p>
+    </section>
+
+    <!-- 05 — PROPOSED PRODUCT DIRECTION -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">05</span>
+        <h2 class="cs-section-title">Proposed Product Direction</h2>
+      </div>
+      <p class="cs-text">I'm not proposing a redesign of Epic. Based on my clinical observations, this is the product direction I would investigate first.</p>
+      <div class="principle-box">Medication eligibility should follow the patient and medication — not the individual order.</div>
+
+      <div class="med-cards">
+        <div class="med-card">
+          <div class="med-card-header">ACETAMINOPHEN</div>
+          <div class="med-card-body">
+            <div class="med-card-row">
+              <span class="med-row-label">Last administration</span>
+              <span class="med-row-value">08:30 — 650 mg PO</span>
+            </div>
+            <div class="med-card-row">
+              <span class="med-row-label">Next eligible</span>
+              <span class="med-row-value">14:30</span>
+            </div>
+            <div class="med-card-row">
+              <span class="med-row-label">Total administered</span>
+              <span class="med-row-value">24-hr lookback</span>
+            </div>
+            <div class="med-card-row">
+              <span class="med-row-label">Source</span>
+              <span class="med-row-value">Vaginal Recovery Order</span>
+            </div>
+          </div>
+          <div class="med-card-warning">⚠ Previous acetaminophen administration detected — last administered 30 minutes ago under another order.</div>
+        </div>
+
+        <div class="med-card">
+          <div class="med-card-header">AMPICILLIN</div>
+          <div class="med-card-body">
+            <div class="med-card-row">
+              <span class="med-row-label">Loading dose</span>
+              <span class="med-row-value">✓ Administered 10:00</span>
+            </div>
+            <div class="med-card-row">
+              <span class="med-row-label">Next maintenance dose</span>
+              <span class="med-row-value">14:00</span>
+            </div>
+            <div class="med-card-row">
+              <span class="med-row-label">Source</span>
+              <span class="med-row-value">GBS Prophylaxis Order</span>
+            </div>
+          </div>
+          <div class="med-card-ok">✓ Maintenance reminder created automatically from the loading-dose administration — no manual tracking required.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 — HOW I WOULD VALIDATE IT -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">06</span>
+        <h2 class="cs-section-title">How I Would Validate It</h2>
+      </div>
+      <p class="cs-text">Before implementation, I'd validate the problem — not just the solution — through:</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-label">WORKFLOW OBSERVATION</div>
+          <p class="info-desc">Observe nurses managing scheduled and PRN medications across L&amp;D/postpartum.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">STAKEHOLDER INTERVIEWS</div>
+          <p class="info-desc">Nursing, pharmacy, clinical informatics, providers, and EHR analysts.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">DATA ANALYSIS</div>
+          <p class="info-desc">Quantify rescheduled administrations, overdue medications, medication-timing events, duplicate orders, and relevant safety reports.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">USABILITY TESTING</div>
+          <p class="info-desc">Test whether consolidated medication history reduces time-to-decision and improves correct identification of next-dose eligibility.</p>
+        </div>
+      </div>
+
+      <p class="cs-text" style="margin-top:40px">Success would look like:</p>
+      <div class="metrics-grid">
+        <div class="metric-item"><span class="metric-arrow">↓</span> Time spent determining medication eligibility</div>
+        <div class="metric-item"><span class="metric-arrow">↓</span> Delayed/missed doses</div>
+        <div class="metric-item"><span class="metric-arrow">↓</span> Early administration attempts</div>
+        <div class="metric-item"><span class="metric-arrow">↓</span> Non-actionable overdue alerts</div>
+        <div class="metric-item"><span class="metric-arrow">↑</span> Nurse confidence in MAR timing</div>
+        <div class="metric-item"><span class="metric-arrow">↑</span> Correct identification of next eligible dose</div>
+      </div>
+    </section>
+
+    <!-- 07 — WHAT I'D DO NEXT -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">07</span>
+        <h2 class="cs-section-title">What I'd Do Next</h2>
+      </div>
+      <div class="disclaimer-box">This project is based on repeated frontline observations rather than access to Epic's underlying configuration or health-system data. Before pursuing implementation, I would partner with nursing, pharmacy, informatics, and EHR teams to validate the root cause, understand existing configuration capabilities, quantify the operational impact, and test potential interventions.</div>
+    </section>
+
+  </main>
+
+  <div class="cs-closing">
+    <h2 class="cs-closing-title">Why I Care</h2>
+    <p class="cs-closing-text">As a travel nurse, I've learned new workflows and EHR configurations across multiple health systems. Working within different implementations has made me especially interested in the gap between how healthcare technology is designed and how clinicians actually use it at the bedside.</p>
+    <p class="cs-closing-text">I want to bring that frontline perspective into healthcare technology — identifying workflow problems, understanding why they occur, and helping build solutions that make clinical work safer and more effective.</p>
+  </div>
+
+  <div class="cta-bar">
+    <span class="cta-text">OPEN TO CLINICAL-INFORMATICS &amp; HEALTH-TECH ROLES</span>
+    <a href="mailto:nicolewardanne@gmail.com" class="cta-link">NICOLEWARDANNE@GMAIL.COM →</a>
+  </div>
+
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

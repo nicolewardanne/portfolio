@@ -5,6 +5,7 @@
   --green-hover: #1F4A2A;
   --cream: #F2F5EC;
   --accent: #3DBA4E;
+  --amber: #C9A227;
   --hr: rgba(20,18,12,0.2);
 }
 
@@ -232,6 +233,53 @@ em { font-style: italic; }
 }
 .stats-btn.nav-btn:hover { background: rgba(233,231,222,0.12); }
 
+/* ---------- featured work (homepage) ---------- */
+.featured-work {
+  padding: 0 64px;
+  margin-top: 64px;
+}
+
+.featured-card {
+  display: block;
+  background: var(--green);
+  color: var(--bg);
+  text-decoration: none;
+  padding: 40px 48px;
+}
+.featured-card:hover { background: var(--green-hover); color: var(--bg); }
+
+.featured-card-eyebrow {
+  font-size: 11px;
+  letter-spacing: 2.2px;
+  font-weight: 700;
+  opacity: 0.65;
+}
+
+.featured-card-title {
+  margin: 14px 0 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.15;
+  max-width: 640px;
+}
+
+.featured-card-desc {
+  margin: 14px 0 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  max-width: 560px;
+  opacity: 0.9;
+}
+
+.featured-card-cta {
+  display: inline-block;
+  margin-top: 22px;
+  font-size: 11px;
+  letter-spacing: 2.2px;
+  font-weight: 700;
+}
+
 /* ---------- innovation / case studies shared shell ---------- */
 .cases-main {
   flex: 1;
@@ -445,6 +493,9 @@ em { font-style: italic; }
   .left-col { padding: 32px 24px 40px; gap: 40px; }
   .portrait-wrap { position: relative; height: 440px; }
   .stats-col { padding: 32px 24px 40px; }
+
+  .featured-work { padding: 0 24px; margin-top: 40px; }
+  .featured-card { padding: 28px 24px; }
 
   .cases-main { padding: 40px 24px 64px; }
   .cases-header {
