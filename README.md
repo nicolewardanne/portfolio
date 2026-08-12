@@ -8,7 +8,7 @@ HTML/CSS/JS site (no build step) so it can be served directly by GitHub Pages.
 ```
 index.html      All three views (markup for Index / Resume / Case Studies)
 css/style.css   Styles, including the mobile layout (breakpoint at 760px)
-js/app.js       View switching (hash-based routing), live clock, date
+js/app.js       View switching (hash-based routing)
 assets/         Drop portrait.jpg and Nicole-Ward-Resume.pdf here (see assets/README.md)
 ```
 
