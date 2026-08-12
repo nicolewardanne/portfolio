@@ -57,7 +57,10 @@ em { font-style: italic; }
   font-weight: 500;
   font-size: 22px;
   justify-self: center;
+  text-decoration: none;
+  color: var(--ink);
 }
+.brand:hover { color: var(--green); }
 
 .site-nav {
   display: flex;
@@ -77,6 +80,8 @@ em { font-style: italic; }
   font-family: inherit;
   border-bottom: 2px solid transparent;
   opacity: 0.75;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .nav-btn.active {
