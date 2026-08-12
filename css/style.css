@@ -137,7 +137,6 @@ em { font-style: italic; }
 .portrait-photo-box {
   position: absolute;
   inset: 0;
-  filter: grayscale(1) contrast(1.05);
   background: #d8d5c9;
   overflow: hidden;
 }
