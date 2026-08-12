@@ -1,5 +1,5 @@
 (function () {
-  var views = ['index', 'resume', 'cases'];
+  var views = ['index', 'resume', 'cases', 'case-studies'];
 
   function setView(view) {
     if (views.indexOf(view) === -1) view = 'index';
