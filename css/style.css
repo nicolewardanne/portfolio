@@ -21,6 +21,12 @@ body {
 a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 a:hover { color: var(--green); }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
 ::selection { background: var(--accent); color: #0B2412; }
 
 em { font-style: italic; }
@@ -498,6 +504,7 @@ em { font-style: italic; }
   }
   .brand { justify-self: unset; }
   .site-nav { justify-content: center; }
+  .nav-btn { padding: 12px 4px; }
 
   .index-grid { grid-template-columns: 1fr; }
   .left-col { padding: 32px 24px 40px; gap: 40px; }
