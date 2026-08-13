@@ -290,6 +290,30 @@ em { font-style: italic; }
   font-weight: 700;
 }
 
+/* ---------- why i care (homepage) ---------- */
+.why-care {
+  background: var(--green);
+  color: var(--bg);
+  padding: 56px 64px;
+}
+
+.why-care-title {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 32px;
+}
+
+.why-care-text {
+  margin-top: 20px;
+  font-size: 15.5px;
+  line-height: 1.75;
+  max-width: 640px;
+  opacity: 0.92;
+}
+.why-care-text + .why-care-text { margin-top: 16px; }
+
 /* ---------- innovation / case studies shared shell ---------- */
 .cases-main {
   flex: 1;
@@ -514,6 +538,8 @@ em { font-style: italic; }
 
   .featured-work { padding: 0 24px; margin-top: 40px; }
   .featured-card { padding: 28px 24px; }
+
+  .why-care { padding: 40px 24px; }
 
   .cases-main { padding: 40px 24px 64px; }
   .cases-header {
