@@ -427,6 +427,111 @@
 }
 .cs-closing-text + .cs-closing-text { margin-top: 16px; }
 
+/* ---------- info grid: 3-column variant ---------- */
+.info-grid--three { grid-template-columns: 1fr 1fr 1fr; }
+
+/* ---------- punchy statement lines ---------- */
+.cs2-statement {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.3;
+  max-width: 640px;
+}
+
+.cs2-closer {
+  margin-top: 20px;
+  font-size: 15.5px;
+  line-height: 1.6;
+  font-weight: 700;
+  max-width: 560px;
+}
+
+/* ---------- design question / callout ---------- */
+.callout-box {
+  border: 1px solid var(--ink);
+  padding: 20px 24px;
+  margin-top: 24px;
+  max-width: 640px;
+}
+
+.callout-label {
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.callout-text {
+  margin-top: 10px;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* ---------- visual placeholder note ---------- */
+.visual-note {
+  border: 1px dashed rgba(20,18,12,0.35);
+  padding: 16px 20px;
+  margin-top: 20px;
+  max-width: 640px;
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.65;
+  font-style: italic;
+}
+
+/* ---------- trajectory / trend table ---------- */
+.trend-table {
+  margin-top: 24px;
+  max-width: 520px;
+  border-collapse: collapse;
+  width: 100%;
+}
+.trend-table th {
+  text-align: right;
+  font-size: 10.5px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  opacity: 0.55;
+  padding: 0 0 10px;
+}
+.trend-table th:first-child { text-align: left; }
+.trend-table td {
+  font-size: 14px;
+  padding: 10px 0;
+  border-top: 1px solid var(--hr);
+  text-align: right;
+  white-space: nowrap;
+}
+.trend-table td:first-child {
+  text-align: left;
+  white-space: normal;
+  padding-right: 12px;
+}
+.trend-table td.is-up { color: var(--amber); font-weight: 700; }
+
+/* ---------- rapid question list ---------- */
+.question-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 32px;
+  margin-top: 20px;
+  max-width: 680px;
+  padding: 0;
+  list-style: none;
+}
+.question-list li {
+  font-size: 14px;
+  line-height: 1.6;
+  border-bottom: 1px solid var(--hr);
+  padding-bottom: 8px;
+}
+
+/* ---------- med-card width modifier ---------- */
+.med-card--wide { width: 100%; max-width: 560px; }
+
 /* ---------- mobile ---------- */
 @media (max-width: 759px) {
   .cs-back { padding: 16px 24px 0; }
@@ -445,4 +550,7 @@
   .timeline-arrow { padding-left: 60px; }
 
   .cs-closing { padding: 40px 24px; margin-top: 56px; }
+
+  .question-list { grid-template-columns: 1fr; }
+  .cs2-statement { font-size: 22px; }
 }

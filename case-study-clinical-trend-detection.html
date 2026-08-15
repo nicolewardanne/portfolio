@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seeing the Trend Before the Threshold — Nicole Ward</title>
+<meta name="description" content="Exploring how AI could help clinicians notice change, recover relevant context, and identify missing information before it gets lost in the chart.">
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}p||((p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",p.onerror=function(){p=null},(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r));var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="bn init $n Nn Un Zi qn Wn Ln capture Bn mn calculateEventProperties Kn register register_once register_for_session unregister unregister_for_session ts Dn Xn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult getAllFeatureFlags isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync es identify setPersonProperties unsetPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset rs shutdown setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Jn Gn createPersonProfile setInternalOrTestUser Yn An os opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Vn debug Qi Pt getPageViewId captureTraceFeedback captureTraceMetric In".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_vL4u4TnsAkKVVP4mgbZHY4oPzru8EBiTWzDFki8Uponz', {
+        api_host: 'https://us.i.posthog.com',
+        defaults: '2026-05-30',
+        person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
+    })
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/case-study.css">
+</head>
+<body>
+<div class="page">
+
+  <header class="site-header">
+    <div class="clock-text">CLINICAL OPERATIONS // HEALTH TECH</div>
+    <a class="brand" href="index.html">The Clinical Record</a>
+    <nav class="site-nav">
+      <a class="nav-btn" href="index.html">INDEX</a>
+      <a class="nav-btn" href="index.html#resume">RESUME</a>
+      <a class="nav-btn" href="index.html#cases">FIELD NOTES</a>
+      <a class="nav-btn active" href="index.html#case-studies">CASE STUDIES</a>
+    </nav>
+  </header>
+
+  <div class="cs-back">
+    <a class="cs-back-link" href="index.html#case-studies">← BACK TO CASE STUDIES</a>
+  </div>
+
+  <div class="cs-header">
+    <div class="cs-eyebrow">CASE STUDY / FILE 06</div>
+    <h1 class="cs-title">Seeing the Trend Before the Threshold</h1>
+    <p class="cs-subtitle">Exploring how AI could help clinicians notice change, recover relevant context, and identify missing information before it gets lost in the chart.</p>
+    <dl class="cs-meta-grid">
+      <div class="cs-meta-item">
+        <dt>FOCUS</dt>
+        <dd>Clinical workflow · AI concept</dd>
+      </div>
+      <div class="cs-meta-item">
+        <dt>DOMAIN</dt>
+        <dd>Maternal health</dd>
+      </div>
+      <div class="cs-meta-item">
+        <dt>YEAR</dt>
+        <dd>2026</dd>
+      </div>
+      <div class="cs-meta-item">
+        <dt>PRINCIPLE</dt>
+        <dd>Standardize visibility. Preserve judgment.</dd>
+      </div>
+    </dl>
+  </div>
+
+  <main class="cs-body">
+
+    <!-- 01 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">01</span>
+        <h2 class="cs-section-title">The Observation</h2>
+      </div>
+      <p class="cs2-statement">The EHR has the data.<br>Clinicians build the context.</p>
+      <p class="cs-text" style="margin-top:20px">Clinical care isn't based on isolated data points. It depends on understanding what changed, what happened before, what's missing, and what multiple pieces of information mean together.</p>
+      <p class="cs-text">Yet much of that synthesis still happens manually.</p>
+      <p class="cs-text">At the bedside, I rewrite information already stored in the EHR onto a paper report sheet. During handoff, nurses verbally reconstruct hours of care. When another clinician asks a question, I search the chart and synthesize the answer. When I take over a patient, I depend on the previous nurse to tell me what matters because I may not have time to rediscover it myself.</p>
+      <p class="cs2-closer">The data exists.<br>The shared clinical picture often doesn't.</p>
+    </section>
+
+    <!-- 02 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">02</span>
+        <h2 class="cs-section-title">The Workaround</h2>
+      </div>
+      <p class="cs2-statement">What lives on my paper brain?</p>
+      <p class="cs-text" style="margin-top:20px">During a shift, I manually create a working representation of my patient that may include:</p>
+
+      <div class="info-grid info-grid--three">
+        <div class="info-card">
+          <div class="info-label">STATUS</div>
+          <p class="info-desc">GBS · Rubella · Allergies · Membrane status · Fluid characteristics · Fetal position</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">LABS</div>
+          <p class="info-desc">Platelets · H&amp;H · WBC · P:C · Blood glucose · Patient-specific results</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">LABOR</div>
+          <p class="info-desc">Last cervical exam · Rupture time · Pitocin history · Pushing duration · Progress · Position changes</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">MEDICATIONS</div>
+          <p class="info-desc">Scheduled medications · Next doses · Antibiotic timing · Uterotonics</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">PROCEDURES</div>
+          <p class="info-desc">Epidural timing · Foley status · Last bladder emptying · IV fluids</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">DELIVERY</div>
+          <p class="info-desc">Birth time · Placenta time · QBL · Laceration · Uterotonics administered</p>
+        </div>
+      </div>
+
+      <p class="cs-text" style="margin-top:32px">Most of this information already exists somewhere in the medical record.</p>
+      <p class="cs-text">I rewrite it because stored information isn't necessarily usable information.</p>
+
+      <div class="callout-box">
+        <div class="callout-label">DESIGN QUESTION</div>
+        <p class="callout-text">If clinicians repeatedly recreate the same information outside the EHR, what is the workaround telling us about the workflow?</p>
+      </div>
+
+      <div class="visual-note">VISUAL: This is where I'd eventually put a synthetic/de-identified recreation of your paper brain with annotations pointing to information that already exists in the EHR.</div>
+    </section>
+
+    <!-- 03 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">03</span>
+        <h2 class="cs-section-title">When There Is No Time to Search</h2>
+      </div>
+      <p class="cs2-statement">Handoff is sometimes the interface.</p>
+      <p class="cs-text" style="margin-top:20px">Recently, I took over a patient who was actively pushing. There was no opportunity to spend ten minutes reconstructing her admission from the chart — I needed to enter the room and provide care.</p>
+      <p class="cs-text">I needed to know immediately:</p>
+
+      <ul class="question-list">
+        <li>How long has she been pushing?</li>
+        <li>Has there been progress?</li>
+        <li>What positions have been tried?</li>
+        <li>When did she rupture?</li>
+        <li>What is the fetal position?</li>
+        <li>When did the Foley come out?</li>
+        <li>Has urine output been adequate?</li>
+        <li>When was the epidural placed?</li>
+        <li>When is the next antibiotic due?</li>
+        <li>What has happened with Pitocin?</li>
+        <li>Have vital signs remained reassuring?</li>
+        <li>Are there contraindications to uterotonics?</li>
+      </ul>
+
+      <p class="cs-text" style="margin-top:28px">Those answers may all exist in the chart.</p>
+      <p class="cs2-closer">But in that moment, availability isn't the same as accessibility.</p>
+      <p class="cs-text" style="margin-top:20px">I depended on another clinician to synthesize the record into the information I needed to safely take over care.</p>
+    </section>
+
+    <!-- 04 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">04</span>
+        <h2 class="cs-section-title">The Failure Modes</h2>
+      </div>
+      <p class="cs-text">I see four recurring opportunities for better clinical systems.</p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-label">NOTICE</div>
+          <p class="info-desc"><strong>What is changing?</strong><br>A value doesn't have to be abnormal for its trajectory to matter.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">REMEMBER</div>
+          <p class="info-desc"><strong>What happened before that matters now?</strong><br>Clinically relevant information may live hours, days, visits, or encounters in the past.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">ASK</div>
+          <p class="info-desc"><strong>What information should exist — but doesn't?</strong><br>An expected assessment or measurement may simply never have been documented.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">SYNTHESIZE</div>
+          <p class="info-desc"><strong>What does the care team need to understand right now?</strong><br>Clinicians repeatedly assemble fragmented data into a usable patient story themselves.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">05</span>
+        <h2 class="cs-section-title">Notice</h2>
+      </div>
+      <p class="cs2-statement">Normal isn't always the same as unchanged.</p>
+      <p class="cs-text" style="margin-top:20px">One of the clearest examples I've encountered involves infection surveillance during labor.</p>
+      <p class="cs-text">A patient with prolonged rupture of membranes may have a trajectory like:</p>
+
+      <table class="trend-table">
+        <thead>
+          <tr><th></th><th>Earlier</th><th>Later</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Maternal temperature</td><td>97.6°F</td><td class="is-up">99.6°F ↑</td></tr>
+          <tr><td>Maternal heart rate</td><td>82</td><td class="is-up">101 ↑</td></tr>
+          <tr><td>Fetal baseline</td><td>130</td><td class="is-up">150 ↑</td></tr>
+        </tbody>
+      </table>
+
+      <p class="cs-text" style="margin-top:28px">Individually, these findings may not cross an obvious threshold.</p>
+      <p class="cs-text">Together, they may deserve attention.</p>
+      <p class="cs-text">In one recent case, I noticed that my patient felt unusually warm while repositioning her. Although her next temperature wasn't yet due, I rechecked it. It was approximately one degree higher than my previous measurement while still below the fever threshold.</p>
+      <p class="cs-text">At the same time, I had noticed gradual increases in maternal and fetal heart rates.</p>
+      <p class="cs-text">I increased temperature surveillance and updated the provider about the developing pattern so the team was aware if the clinical picture progressed.</p>
+      <p class="cs-text">I've seen similar trajectories ultimately lead to a diagnosis of intraamniotic infection.</p>
+      <p class="cs-text">I've also seen them lead to nothing.</p>
+      <p class="cs2-closer">That distinction matters.</p>
+      <div class="insight-box">The goal isn't for AI to declare a diagnosis. It's to make meaningful change easier for the care team to see.</div>
+    </section>
+
+    <!-- 06 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">06</span>
+        <h2 class="cs-section-title">Remember</h2>
+      </div>
+      <p class="cs2-statement">Clinical significance can live across time.</p>
+      <p class="cs-text" style="margin-top:20px">Consider blood pressure during pregnancy.</p>
+      <p class="cs-text">A patient may have an elevated blood pressure during one encounter and another qualifying elevation much later in pregnancy or during labor.</p>
+      <p class="cs-text">The current value is only part of the question.</p>
+      <p class="cs-text">Has this happened before?</p>
+      <p class="cs-text">That historical context may affect evaluation for a hypertensive disorder and downstream clinical decisions, including laboratory assessment and medication considerations.</p>
+      <p class="cs-text">But recognizing the relationship can depend on someone knowing to search previous encounters and finding the relevant values.</p>
+      <div class="insight-box">A computer doesn't have to remember. It can retrieve.</div>
+      <p class="cs-text" style="margin-top:20px">An AI-assisted system could surface relevant historical events with their source and timestamp when they become pertinent to the current clinical picture — without independently making the diagnosis.</p>
+    </section>
+
+    <!-- 07 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">07</span>
+        <h2 class="cs-section-title">Ask</h2>
+      </div>
+      <p class="cs2-statement">Sometimes the most useful answer is:<br>I need more information.</p>
+      <p class="cs-text" style="margin-top:20px">Early in my nursing career, I cared for two laboring patients who required temperature assessments every two hours.</p>
+      <p class="cs-text">During a busy shift, I missed them.</p>
+      <p class="cs-text">There was no meaningful system prompt telling me that expected surveillance data was absent. Near the end of the shift, a physician kindly reminded me of the requirement.</p>
+      <p class="cs-text">I was mortified. I never forgot again.</p>
+      <p class="cs2-closer">But embarrassment shouldn't be the mechanism that makes a clinical workflow reliable.</p>
+
+      <p class="cs-text" style="margin-top:24px">An intelligent surveillance layer could recognize:</p>
+
+      <div class="med-card med-card--wide">
+        <div class="med-card-header">TEMPERATURE SURVEILLANCE</div>
+        <div class="med-card-body">
+          <div class="med-card-row">
+            <span class="med-row-label">Expected interval</span>
+            <span class="med-row-value">q2h</span>
+          </div>
+          <div class="med-card-row">
+            <span class="med-row-label">Last documented</span>
+            <span class="med-row-value">2h 38m ago</span>
+          </div>
+        </div>
+        <div class="med-card-warning">⚠ Expected information missing — temperature surveillance is overdue.</div>
+      </div>
+
+      <p class="cs-text" style="margin-top:24px">More importantly, if other relevant data were changing, the system could communicate why obtaining updated information may matter.</p>
+      <div class="insight-box">AI doesn't always need to provide an answer. Sometimes it should recognize that the available data isn't sufficient to confidently evaluate the situation.</div>
+    </section>
+
+    <!-- 08 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">08</span>
+        <h2 class="cs-section-title">The Product Opportunity</h2>
+      </div>
+      <p class="cs2-statement">From fragmented data to shared clinical context.</p>
+      <p class="cs-text" style="margin-top:20px">I would explore an AI-assisted surveillance layer that continuously organizes longitudinal clinical information around four functions:</p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-label">NOTICE</div>
+          <p class="info-desc">Surface potentially meaningful changes across related data.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">REMEMBER</div>
+          <p class="info-desc">Retrieve prior events that may be relevant to the current situation.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">ASK</div>
+          <p class="info-desc">Identify expected or clinically useful information that is missing.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">SYNTHESIZE</div>
+          <p class="info-desc">Create a shared, current picture of the patient's trajectory for the care team.</p>
+        </div>
+      </div>
+
+      <p class="cs-text" style="margin-top:32px">A conceptual view might look like:</p>
+
+      <div class="med-card med-card--wide">
+        <div class="med-card-header">PATIENT TRAJECTORY</div>
+        <div class="med-card-body">
+          <div class="med-card-row">
+            <span class="med-row-label">Rupture duration</span>
+            <span class="med-row-value">18h 42m</span>
+          </div>
+          <div class="med-card-row">
+            <span class="med-row-label">Maternal temperature</span>
+            <span class="med-row-value">97.6 → 98.0 → 98.4 → 99.6 ↑</span>
+          </div>
+          <div class="med-card-row">
+            <span class="med-row-label">Maternal HR</span>
+            <span class="med-row-value">82 → 88 → 94 → 101 ↑</span>
+          </div>
+          <div class="med-card-row">
+            <span class="med-row-label">Fetal baseline</span>
+            <span class="med-row-value">130 → 135 → 145 → 150 ↑</span>
+          </div>
+          <div class="med-card-row">
+            <span class="med-row-label">Surveillance</span>
+            <span class="med-row-value">Last temp 42 min ago</span>
+          </div>
+        </div>
+        <div class="med-card-ok">Context: Multiple related measures have increased from earlier values.</div>
+      </div>
+
+      <div class="disclaimer-box">No diagnosis. No prescribed action. The underlying data remains visible so the clinician can interpret its significance.</div>
+    </section>
+
+    <!-- 09 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">09</span>
+        <h2 class="cs-section-title">Not Everything Deserves an Alert</h2>
+      </div>
+      <p class="cs-text">This may be the most important design constraint.</p>
+      <p class="cs-text">Clinicians already work in environments saturated with notifications.</p>
+      <p class="cs-text">In my own workflow, an overdue-medication indicator is frequently populated with non-actionable information, making it easy to stop treating the indicator as meaningful. Sepsis screening can similarly become noisy when broad parameters trigger frequently.</p>
+      <p class="cs-text">Adding AI-generated warnings without controlling their relevance could make the problem worse.</p>
+
+      <p class="cs-text" style="margin-top:24px">I would design an attention hierarchy:</p>
+
+      <div class="flow-diagram">
+        <div class="flow-step"><strong>01 — Context</strong><br>Available without interruption.</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step"><strong>02 — Attention cue</strong><br>Meaningful change surfaced visually.</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step"><strong>03 — Missing data prompt</strong><br>Information needed for appropriate surveillance may be absent.</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step"><strong>04 — Interruptive alert</strong><br>Reserved for sufficiently validated, actionable safety conditions.</div>
+      </div>
+
+      <p class="cs2-closer">Interruption should be earned.</p>
+    </section>
+
+    <!-- 10 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">10</span>
+        <h2 class="cs-section-title">Safety by Design</h2>
+      </div>
+      <p class="cs-text">An AI surveillance system in healthcare could cause harm if it is poorly designed.</p>
+
+      <div class="info-grid info-grid--three">
+        <div class="info-card">
+          <div class="info-label">POPULATION MATTERS</div>
+          <p class="info-desc">Models must be validated for the population in which they're used. Laboring patients have physiologic and clinical contexts that cannot simply be treated as general adult medicine.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">TRENDS AREN'T DIAGNOSES</div>
+          <p class="info-desc">The same trajectory can have different explanations. A changing pattern should not automatically become a diagnostic conclusion.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">MISSING DATA CREATES UNCERTAINTY</div>
+          <p class="info-desc">The system should communicate when its interpretation is limited by incomplete or outdated information.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">EXPLAIN WHY</div>
+          <p class="info-desc">Clinicians should be able to see the values, timestamps, sources, and relationships behind a surfaced concern.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">AVOID AUTOMATION BIAS</div>
+          <p class="info-desc">AI should support clinical reasoning — not encourage clinicians to substitute a model's conclusion for assessment and judgment.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">ALERT FATIGUE IS A SAFETY ISSUE</div>
+          <p class="info-desc">Sensitivity alone isn't success. A warning clinicians learn to ignore provides little protection.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">11</span>
+        <h2 class="cs-section-title">How I Would Validate It</h2>
+      </div>
+      <p class="cs-text">I wouldn't start by building an alert.</p>
+      <p class="cs-text">I'd start by determining whether the problem and proposed intervention hold up outside my own experience.</p>
+
+      <div class="info-grid info-grid--three">
+        <div class="info-card">
+          <div class="info-label">01 — WORKFLOW OBSERVATION</div>
+          <p class="info-desc">Observe how nurses, physicians, anesthesia, and other clinicians currently reconstruct patient context and what information they maintain outside the EHR.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">02 — CLINICIAN INTERVIEWS</div>
+          <p class="info-desc">Identify which trends, historical events, and missing data clinicians actually find useful — and where needs differ by role.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">03 — RETROSPECTIVE ANALYSIS</div>
+          <p class="info-desc">Examine whether candidate trajectories reliably precede clinically meaningful events and quantify false-positive patterns.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">04 — PROTOTYPE</div>
+          <p class="info-desc">Test passive trajectory views and shared-context summaries before introducing interruptive alerts.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">05 — SIMULATION + USABILITY TESTING</div>
+          <p class="info-desc">Present clinicians with identical patient scenarios using current-state versus proposed interfaces and measure recognition, interpretation, and response.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">06 — CONTROLLED DEPLOYMENT</div>
+          <p class="info-desc">Introduce functionality gradually, monitor unintended consequences, and continuously evaluate trust and actionability.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">12</span>
+        <h2 class="cs-section-title">What I Would Measure</h2>
+      </div>
+      <p class="cs-text">The goal isn't more alerts.</p>
+      <p class="cs-text">The goal is better situational awareness with less unnecessary cognitive work.</p>
+
+      <p class="cs-text" style="margin-top:24px">Potential measures:</p>
+      <div class="metrics-grid">
+        <div class="metric-item"><span class="metric-arrow">↓</span> Time required to reconstruct relevant patient history</div>
+        <div class="metric-item"><span class="metric-arrow">↓</span> Missing expected assessments</div>
+        <div class="metric-item"><span class="metric-arrow">↓</span> Time to recognition of clinically meaningful change</div>
+        <div class="metric-item"><span class="metric-arrow">↑</span> Recognition of relevant longitudinal patterns</div>
+        <div class="metric-item"><span class="metric-arrow">↑</span> Shared situational awareness across clinicians</div>
+        <div class="metric-item"><span class="metric-arrow">↑</span> Clinician confidence during handoff</div>
+        <div class="metric-item"><span class="metric-arrow">↓</span> Non-actionable notifications</div>
+        <div class="metric-item"><span class="metric-arrow">↓</span> False-positive / ignored alerts</div>
+      </div>
+
+      <p class="cs-text" style="margin-top:28px">And I would treat clinician trust and override behavior as safety metrics, not merely adoption metrics.</p>
+    </section>
+
+    <!-- 13 -->
+    <section class="cs-section">
+      <div class="cs-section-head">
+        <span class="cs-section-num">13</span>
+        <h2 class="cs-section-title">The Principle</h2>
+      </div>
+
+      <div class="principle-box">Standardize visibility.<br>Preserve judgment.</div>
+
+      <p class="cs-text" style="margin-top:28px">Healthcare will always require human judgment.</p>
+      <p class="cs-text">The opportunity for AI isn't to make every clinician reach the same conclusion. It's to reduce the chance that clinically relevant information is overlooked simply because it was buried in another screen, happened on another shift, occurred during another encounter, or never got collected.</p>
+
+      <div class="info-grid" style="margin-top:28px">
+        <div class="info-card">
+          <div class="info-label">AI CAN HELP</div>
+          <p class="info-desc">Notice · Remember · Ask · Synthesize</p>
+        </div>
+        <div class="info-card">
+          <div class="info-label">CLINICIANS</div>
+          <p class="info-desc">Interpret · Decide · Act</p>
+        </div>
+      </div>
+
+      <p class="cs2-closer" style="margin-top:32px">The goal isn't to replace vigilance. It's to build systems that support it.</p>
+    </section>
+
+  </main>
+
+  <div class="cs-closing">
+    <h2 class="cs-closing-title">Why I Care</h2>
+    <p class="cs-closing-text">I've worked inside enough hospitals to know that clinicians are remarkably good at making imperfect systems work.</p>
+    <p class="cs-closing-text">We remember what the software doesn't. We create workarounds. We double-check information across screens. We learn which alerts matter and which ones to ignore. We carry the cognitive burden of systems that weren't designed around the reality of providing care. Most of the time, the patient never knows how much invisible work happened behind the scenes.</p>
+    <p class="cs-closing-text">I don't think we should accept that as the cost of working in healthcare.</p>
+    <p class="cs-closing-text">Nurses and clinicians deserve technology that makes it easier to care for people, not technology they have to work around. Patients deserve healthcare systems that take advantage of what's possible today, rather than asking the people caring for them to keep compensating for what's outdated, fragmented, or unnecessarily difficult.</p>
+    <p class="cs-closing-text">Working across multiple health systems has made me believe deeply in what thoughtful technology can change, especially when the people who actually deliver care have a voice in building it.</p>
+    <p class="cs-closing-text">That's the work I want to be part of.</p>
+  </div>
+
+  <div class="cta-bar">
+    <span class="cta-text">OPEN TO HEALTHCARE TECHNOLOGY &amp; CLINICAL OPERATIONS</span>
+    <a href="mailto:nicolewardanne@gmail.com" class="cta-link">NICOLEWARDANNE@GMAIL.COM →</a>
+  </div>
+
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

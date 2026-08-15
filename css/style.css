@@ -471,6 +471,7 @@ em { font-style: italic; }
 
 /* ---------- case studies ---------- */
 .cases-list { display: grid; gap: 0; margin-top: 8px; }
+.cases-list > .featured-card + .featured-card { margin-top: 24px; }
 
 .case-article {
   display: grid;
